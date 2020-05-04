@@ -38,8 +38,16 @@ public class Lexical {
 	static final int INT_LIT = 12;
 	static final int dot = 13;
 	static final int FLO_LIT = 14;
-    static final int QUOTES = 15;
-    
+  	static final int QUOTES = 15;
+    	static final int ADD = 16;
+	static final int SUB = 17;
+	static final int MULT = 18;
+	static final int DIV = 19;
+	static final int LEFT_PAREN = 20;
+	static final int RIGHT_PAREN = 21;
+	static final int EQU = 22;
+	
+	
     //special characters
     static int Flag = 0;
     
@@ -69,6 +77,42 @@ public class Lexical {
 			addChar();
 			nextTok = QUOTES;
 			break;
+		case '('
+			addChar();
+			nextToken = LEFT_PAREN;
+			break;
+		case ')':
+			addChar();
+			nextToken = RIGHT_PAREN;
+			break;
+		case '+':
+			addChar();
+			nextToken = ADD;
+			break;
+		case '-':
+			addChar();
+			nextToken = SUB;
+			break;
+		case '*':
+			addChar();
+			nextToken = MULT;
+			break;
+		case '/':
+			addChar();
+			nextToken = DIV;
+			break;
+		case '=':
+			addChar();
+			nextToken = EQU;
+			break;
+		case '>':
+			addChar();
+			nextToken = MORE;
+			break;
+		case '=':
+			addChar();
+			nextToken = EQU;
+			break;		
 		default:
 			addChar();
 			nextTok = 0;
@@ -207,7 +251,7 @@ public class Lexical {
 		state(states);
 		System.out.print("\n");
 		return nextTok;
-	}
+	}	
 	public static void main(String[]args) throws IOException{
 		System.out.println("State Diagram Recognition");
 		if ((in_fp = new File("C:\\Users\\kuwan_000\\Documents"
