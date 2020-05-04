@@ -79,39 +79,39 @@ public class Lexical {
 			break;
 		case '('
 			addChar();
-			nextToken = LEFT_PAREN;
+			nextTok = LEFT_PAREN;
 			break;
 		case ')':
 			addChar();
-			nextToken = RIGHT_PAREN;
+			nextTok = RIGHT_PAREN;
 			break;
 		case '+':
 			addChar();
-			nextToken = ADD;
+			nextTok = ADD;
 			break;
 		case '-':
 			addChar();
-			nextToken = SUB;
+			nextTok = SUB;
 			break;
 		case '*':
 			addChar();
-			nextToken = MULT;
+			nextTok = MULT;
 			break;
 		case '/':
 			addChar();
-			nextToken = DIV;
+			nextTok = DIV;
 			break;
 		case '=':
 			addChar();
-			nextToken = EQU;
+			nextTok = EQU;
 			break;
 		case '>':
 			addChar();
-			nextToken = EQU;
+			nextTok = EQU;
 			break;
 		case '<':
 			addChar();
-			nextToken = EQU;
+			nextTok = EQU;
 			break;			
 		default:
 			addChar();
