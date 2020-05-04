@@ -107,12 +107,12 @@ public class Lexical {
 			break;
 		case '>':
 			addChar();
-			nextToken = MORE;
+			nextToken = EQU;
 			break;
-		case '=':
+		case '<':
 			addChar();
 			nextToken = EQU;
-			break;		
+			break;			
 		default:
 			addChar();
 			nextTok = 0;
