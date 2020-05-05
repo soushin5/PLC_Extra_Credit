@@ -25,27 +25,31 @@ public class Lexical {
 	static final int END_S = 6;
 	static final int END_I = 7;
 	static final int END_E = 8;
+	static final int END_EQ = 30;
 
 	//Char Types
-	static final int LETTER = 0;
-	static final int DIGIT = 1;
+	static final int LETTER = 9;
+	static final int DIGIT = 10;
+	static final int EQUALITY = 11;
+	static final int ADD_OP = 12;
+	static final int MULT_OP = 13;
 	static final int UNKNOWN = 99;
 	static final int EOF = -1;
 
 	//char values
-	static final int STR_LIT = 10;
-	static final int IDENT = 11;
-	static final int INT_LIT = 12;
-	static final int dot = 13;
-	static final int FLO_LIT = 14;
-  	static final int QUOTES = 15;
-    	static final int ADD = 16;
-	static final int SUB = 17;
-	static final int MULT = 18;
-	static final int DIV = 19;
-	static final int LEFT_PAREN = 20;
-	static final int RIGHT_PAREN = 21;
-	static final int EQU = 22;
+	static final int STR_LIT = 12;
+	static final int IDENT = 13;
+	static final int INT_LIT = 14;
+	static final int dot = 15;
+	static final int FLO_LIT = 16;
+  	static final int QUOTES = 17;
+   	static final int ADD = 18;
+	static final int SUB = 19;
+	static final int MULT = 20;
+	static final int DIV = 21;
+	static final int LEFT_PAREN = 22;
+	static final int RIGHT_PAREN = 23;
+	static final int EQU = 24;
 	
 	
     //special characters
@@ -77,7 +81,7 @@ public class Lexical {
 			addChar();
 			nextTok = QUOTES;
 			break;
-		case '('
+		case '(':
 			addChar();
 			nextTok = LEFT_PAREN;
 			break;
@@ -208,6 +212,16 @@ public class Lexical {
 			nextTok = INT_LIT;
 			states = END_N;
 			break;
+		/* equality operator */
+		case EQUALITY:
+			addChar();
+			getChar(br);
+			while(charClass == EQUALITY) {
+				addChar();
+				getChar(br);
+			}
+			nextTok = EQU;
+			states = END_EQ;
 		/*quotes for Strings*/
 		case UNKNOWN:
 			lookup(nextChar);
